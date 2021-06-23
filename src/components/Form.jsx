@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Checkbox from "./Checkbox";
 
 const initialFormState = {
   username: "",
@@ -84,48 +85,30 @@ function Form(props) {
         </h3>
         <ul>
           <li>
-            <label>
-              <input
-                name="bestFeatures"
+            <Checkbox name="bestFeatures"
                 type="checkbox"
                 value="colour"
-                onChange={handleCheckboxGroupChange}
-              />
-              It's yellow!
-            </label>
+                onChange={handleCheckboxGroupChange} >It's yellow!</Checkbox>
           </li>
           <li>
-            <label>
-              <input
-                name="bestFeatures"
+           <Checkbox name="bestFeatures"
                 type="checkbox"
                 value="sound"
-                onChange={handleCheckboxGroupChange}
-              />
-              It squeaks!
-            </label>
+                onChange={handleCheckboxGroupChange} >It squeaks!</Checkbox>
+           
           </li>
           <li>
-            <label>
-              <input
-                name="bestFeatures"
+                <Checkbox name="bestFeatures"
                 type="checkbox"
                 value="logo"
-                onChange={handleCheckboxGroupChange}
-              />
-              It has a logo!
-            </label>
+                onChange={handleCheckboxGroupChange} >It has a logo!</Checkbox>
           </li>
           <li>
-            <label>
-              <input
-                name="bestFeatures"
+               <Checkbox name="bestFeatures"
                 type="checkbox"
                 value="size"
-                onChange={handleCheckboxGroupChange}
-              />
-              Its big!
-            </label>
+                onChange={handleCheckboxGroupChange} >It's Big!</Checkbox>
+            
           </li>
         </ul>
       </div>
@@ -133,48 +116,32 @@ function Form(props) {
         <h3>What would you say that are the worst bits of your rubber duck?</h3>
         <ul>
           <li>
-            <label>
-              <input
-                name="worstFeatures"
+               <Checkbox name="worstFeatures"
                 type="checkbox"
-                value="colour"
-                onChange={handleCheckboxGroupChange}
-              />
-              It's yellow!
-            </label>
+                value="color"
+                onChange={handleCheckboxGroupChange} >I It's yellow!</Checkbox>
+            
           </li>
           <li>
-            <label>
-              <input
-                name="worstFeatures"
+           <Checkbox name="worstFeatures"
                 type="checkbox"
                 value="sound"
-                onChange={handleCheckboxGroupChange}
-              />
-              It squeaks!
-            </label>
+                onChange={handleCheckboxGroupChange} > It squeaks!</Checkbox>
+         
           </li>
           <li>
-            <label>
-              <input
-                name="worstFeatures"
+            <Checkbox name="worstFeatures"
                 type="checkbox"
                 value="logo"
-                onChange={handleCheckboxGroupChange}
-              />
-              It has a logo!
-            </label>
+                onChange={handleCheckboxGroupChange} >  It has a logo!</Checkbox>
+           
           </li>
           <li>
-            <label>
-              <input
-                name="worstFeatures"
+              <Checkbox name="worstFeatures"
                 type="checkbox"
                 value="size"
-                onChange={handleCheckboxGroupChange}
-              />
-              Its big!
-            </label>
+                onChange={handleCheckboxGroupChange} >  Its big!</Checkbox>
+            
           </li>
         </ul>
       </div>
