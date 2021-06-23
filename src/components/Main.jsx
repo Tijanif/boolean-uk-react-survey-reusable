@@ -7,7 +7,7 @@ function Main() {
     <main className="main">
       <section className={`main__list ${open ? "open" : ""}`}>
         <h2>Answers list</h2>
-        {/* answers should go here */}
+        <AnswersList answersList={answersList} />
       </section>
       <section className="main__form">{/* a form should be here */}</section>
     </main>
