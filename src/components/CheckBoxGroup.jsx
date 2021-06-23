@@ -1,6 +1,10 @@
 import Checkbox from './Checkbox';
 
-function CheckBoxGroup({ answers, CheckboxList, handleCheckboxGroupChange }) {
+function CheckBoxGroup({
+  isItChecked,
+  CheckboxList,
+  handleCheckboxGroupChange,
+}) {
   return (
     <ul>
       {CheckboxList.map((item, i) => (
@@ -10,7 +14,7 @@ function CheckBoxGroup({ answers, CheckboxList, handleCheckboxGroupChange }) {
             value={item.value}
             type='checkbox'
             onChange={handleCheckboxGroupChange}
-            // checked={answers.timeSpent.includes(item.value)}
+            checked={isItChecked ? isItChecked.includes(item.value) : ''}
           >
             {item.text}
           </Checkbox>{' '}

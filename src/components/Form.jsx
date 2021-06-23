@@ -153,6 +153,7 @@ function Form(props) {
           What would you say that are the best features of your rubber duck?
         </h3>
         <CheckBoxGroup
+          isItChecked={answers.bestFeatures}
           CheckboxList={bestFeaturesCheckbox}
           handleCheckboxGroupChange={handleCheckboxGroupChange}
         />
@@ -160,6 +161,7 @@ function Form(props) {
       <div className='form__group'>
         <h3>What would you say that are the worst bits of your rubber duck?</h3>
         <CheckBoxGroup
+          isItChecked={answers.worstFeatures}
           CheckboxList={worstFeaturesCheckbox}
           handleCheckboxGroupChange={handleCheckboxGroupChange}
         />
@@ -306,7 +308,7 @@ function Form(props) {
       <div className='form__group'>
         <h3>How do you like to spend time with your rubber duck</h3>
         <CheckBoxGroup
-          answers={answers}
+          isItChecked={answers.timeSpent}
           CheckboxList={timeSpentCheckbox}
           handleCheckboxGroupChange={handleCheckboxGroupChange}
         />
