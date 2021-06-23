@@ -1,41 +1,42 @@
-import { useState } from "react";
-import Checkbox from "./Checkbox";
+import { useState } from 'react';
+import Checkbox from './Checkbox';
+import CheckBoxGroup from './CheckBoxGroup';
 
 const initialFormState = {
-  username: "",
-  email: "",
-  logo: "",
-  colour: "",
-  consistency: "",
+  username: '',
+  email: '',
+  logo: '',
+  colour: '',
+  consistency: '',
   timeSpent: [],
-  review: "",
+  review: '',
   bestFeatures: [],
-  worstFeatures: []
+  worstFeatures: [],
 };
 
 const ANSWER_EXAMPLE = {
-  username: "Nicolas",
-  email: "nico@nico.las",
-  logo: "4",
-  colour: "2",
-  consistency: "3",
-  timeSpent: ["swimming", "chatting"],
-  review: "I love my rubber ducky! ❤️",
-  bestFeatures: ["colour", "size"],
-  worstFeatures: ["sound"]
+  username: 'Nicolas',
+  email: 'nico@nico.las',
+  logo: '4',
+  colour: '2',
+  consistency: '3',
+  timeSpent: ['swimming', 'chatting'],
+  review: 'I love my rubber ducky! ❤️',
+  bestFeatures: ['colour', 'size'],
+  worstFeatures: ['sound'],
 };
 
 function Form(props) {
   const [answers, setAnswers] = useState({
-    username: "",
-    email: "",
-    logo: "",
-    colour: "",
-    consistency: "4",
-    timeSpent: ["bathing"],
-    review: "",
+    username: '',
+    email: '',
+    logo: '',
+    colour: '',
+    consistency: '4',
+    timeSpent: ['bathing'],
+    review: '',
     bestFeatures: [],
-    worstFeatures: []
+    worstFeatures: [],
   });
 
   function handleSubmit(event) {
@@ -75,226 +76,221 @@ function Form(props) {
   // function handleEmailChange(event) {
   //   setAnswers({ ...answers, email: event.target.value });
   // }
+  const bestFeaturesCheckbox = [
+    {
+      name: 'bestFeatures',
+      value: 'colour',
+      text: "It's yellow!",
+    },
+    {
+      name: 'bestFeatures',
+      value: 'sound',
+      text: 'It squeaks!',
+    },
+    {
+      name: 'bestFeatures',
+      value: 'logo',
+      text: 'It has a logo!',
+    },
+    {
+      name: 'bestFeatures',
+      value: 'size',
+      text: 'Its big!',
+    },
+  ];
+
+  const worstFeaturesCheckbox = [
+    {
+      name: 'worstFeatures',
+      value: 'colour',
+      text: "It's yellow!",
+    },
+    {
+      name: 'worstFeatures',
+      value: 'sound',
+      text: 'It squeaks!',
+    },
+    {
+      name: 'worstFeatures',
+      value: 'logo',
+      text: 'It has a logo!',
+    },
+    {
+      name: 'worstFeatures',
+      value: 'size',
+      text: 'Its big!',
+    },
+  ];
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
+    <form className='form' onSubmit={handleSubmit}>
       <h2>Tell us what you think about your rubber duck!</h2>
-      <div className="form__group">
+      <div className='form__group'>
         <h3>
           What would you say that are the best features of your rubber duck?
         </h3>
-        <ul>
-          <li>
-            <Checkbox name="bestFeatures"
-                type="checkbox"
-                value="colour"
-                onChange={handleCheckboxGroupChange} >It's yellow!</Checkbox>
-          </li>
-          <li>
-           <Checkbox name="bestFeatures"
-                type="checkbox"
-                value="sound"
-                onChange={handleCheckboxGroupChange} >It squeaks!</Checkbox>
-           
-          </li>
-          <li>
-                <Checkbox name="bestFeatures"
-                type="checkbox"
-                value="logo"
-                onChange={handleCheckboxGroupChange} >It has a logo!</Checkbox>
-          </li>
-          <li>
-               <Checkbox name="bestFeatures"
-                type="checkbox"
-                value="size"
-                onChange={handleCheckboxGroupChange} >It's Big!</Checkbox>
-            
-          </li>
-        </ul>
+        <CheckBoxGroup
+          CheckboxList={bestFeaturesCheckbox}
+          handleCheckboxGroupChange={handleCheckboxGroupChange}
+        />
       </div>
-      <div className="form__group">
+      <div className='form__group'>
         <h3>What would you say that are the worst bits of your rubber duck?</h3>
-        <ul>
-          <li>
-               <Checkbox name="worstFeatures"
-                type="checkbox"
-                value="color"
-                onChange={handleCheckboxGroupChange} >I It's yellow!</Checkbox>
-            
-          </li>
-          <li>
-           <Checkbox name="worstFeatures"
-                type="checkbox"
-                value="sound"
-                onChange={handleCheckboxGroupChange} > It squeaks!</Checkbox>
-         
-          </li>
-          <li>
-            <Checkbox name="worstFeatures"
-                type="checkbox"
-                value="logo"
-                onChange={handleCheckboxGroupChange} >  It has a logo!</Checkbox>
-           
-          </li>
-          <li>
-              <Checkbox name="worstFeatures"
-                type="checkbox"
-                value="size"
-                onChange={handleCheckboxGroupChange} >  Its big!</Checkbox>
-            
-          </li>
-        </ul>
+        <CheckBoxGroup
+          CheckboxList={worstFeaturesCheckbox}
+          handleCheckboxGroupChange={handleCheckboxGroupChange}
+        />
       </div>
-      <div className="form__group radio">
+      <div className='form__group radio'>
         <h3>How do you rate your rubber duck consistency?</h3>
         <ul>
           <li>
             <input
-              id="consistency1"
-              type="radio"
-              name="consistency"
-              value="1"
+              id='consistency1'
+              type='radio'
+              name='consistency'
+              value='1'
               onChange={handleChange}
-              checked={answers.consistency === "1"}
+              checked={answers.consistency === '1'}
             />
-            <label htmlFor="consistency1">1</label>
+            <label htmlFor='consistency1'>1</label>
           </li>
           <li>
             <input
-              id="consistency2"
-              type="radio"
-              name="consistency"
-              value="2"
+              id='consistency2'
+              type='radio'
+              name='consistency'
+              value='2'
               onChange={handleChange}
-              checked={answers.consistency === "2"}
+              checked={answers.consistency === '2'}
             />
-            <label htmlFor="consistency2">2</label>
+            <label htmlFor='consistency2'>2</label>
           </li>
           <li>
             <input
-              id="consistency3"
-              type="radio"
-              name="consistency"
-              value="3"
+              id='consistency3'
+              type='radio'
+              name='consistency'
+              value='3'
               onChange={handleChange}
-              checked={answers.consistency === "3"}
+              checked={answers.consistency === '3'}
             />
-            <label htmlFor="consistency3">3</label>
+            <label htmlFor='consistency3'>3</label>
           </li>
           <li>
             <input
-              id="consistency4"
-              type="radio"
-              name="consistency"
-              value="4"
+              id='consistency4'
+              type='radio'
+              name='consistency'
+              value='4'
               onChange={handleChange}
-              checked={answers.consistency === "4"}
+              checked={answers.consistency === '4'}
             />
-            <label htmlFor="consistency4">4</label>
+            <label htmlFor='consistency4'>4</label>
           </li>
         </ul>
       </div>
-      <div className="form__group radio">
+      <div className='form__group radio'>
         <h3>How do you rate your rubber duck colour?</h3>
         <ul>
           <li>
             <input
-              id="colour1"
-              type="radio"
-              name="colour"
-              value="1"
+              id='colour1'
+              type='radio'
+              name='colour'
+              value='1'
               onChange={handleChange}
             />
-            <label htmlFor="colour1">1</label>
+            <label htmlFor='colour1'>1</label>
           </li>
           <li>
             <input
-              id="colour2"
-              type="radio"
-              name="colour"
-              value="2"
+              id='colour2'
+              type='radio'
+              name='colour'
+              value='2'
               onChange={handleChange}
             />
-            <label htmlFor="colour2">2</label>
+            <label htmlFor='colour2'>2</label>
           </li>
           <li>
             <input
-              id="colour3"
-              type="radio"
-              name="colour"
-              value="3"
+              id='colour3'
+              type='radio'
+              name='colour'
+              value='3'
               onChange={handleChange}
             />
-            <label htmlFor="colour3">3</label>
+            <label htmlFor='colour3'>3</label>
           </li>
           <li>
             <input
-              id="colour4"
-              type="radio"
-              name="colour"
-              value="4"
+              id='colour4'
+              type='radio'
+              name='colour'
+              value='4'
               onChange={handleChange}
             />
-            <label htmlFor="colour4">4</label>
+            <label htmlFor='colour4'>4</label>
           </li>
         </ul>
       </div>
-      <div className="form__group radio">
+      <div className='form__group radio'>
         <h3>How do you rate your rubber duck logo?</h3>
         <ul>
           <li>
             <input
-              id="logo1"
-              type="radio"
-              name="logo"
-              value="1"
+              id='logo1'
+              type='radio'
+              name='logo'
+              value='1'
               onChange={handleChange}
             />
-            <label htmlFor="logo1">1</label>
+            <label htmlFor='logo1'>1</label>
           </li>
           <li>
             <input
-              id="logo2"
-              type="radio"
-              name="logo"
-              value="2"
+              id='logo2'
+              type='radio'
+              name='logo'
+              value='2'
               onChange={handleChange}
             />
-            <label htmlFor="logo2">2</label>
+            <label htmlFor='logo2'>2</label>
           </li>
           <li>
             <input
-              id="logo3"
-              type="radio"
-              name="logo"
-              value="3"
+              id='logo3'
+              type='radio'
+              name='logo'
+              value='3'
               onChange={handleChange}
             />
-            <label htmlFor="logo3">3</label>
+            <label htmlFor='logo3'>3</label>
           </li>
           <li>
             <input
-              id="logo4"
-              type="radio"
-              name="logo"
-              value="4"
+              id='logo4'
+              type='radio'
+              name='logo'
+              value='4'
               onChange={handleChange}
             />
-            <label htmlFor="logo4">4</label>
+            <label htmlFor='logo4'>4</label>
           </li>
         </ul>
       </div>
-      <div className="form__group">
+      <div className='form__group'>
         <h3>How do you like to spend time with your rubber duck</h3>
         <ul>
           <li>
             <label>
               <input
-                name="timeSpent"
-                type="checkbox"
-                value="swimming"
+                name='timeSpent'
+                type='checkbox'
+                value='swimming'
                 onChange={handleCheckboxGroupChange}
-                checked={answers.timeSpent.includes("swimming")}
+                checked={answers.timeSpent.includes('swimming')}
               />
               Swimming
             </label>
@@ -302,11 +298,11 @@ function Form(props) {
           <li>
             <label>
               <input
-                name="timeSpent"
-                type="checkbox"
-                value="bathing"
+                name='timeSpent'
+                type='checkbox'
+                value='bathing'
                 onChange={handleCheckboxGroupChange}
-                checked={answers.timeSpent.includes("bathing")}
+                checked={answers.timeSpent.includes('bathing')}
               />
               Bathing
             </label>
@@ -314,11 +310,11 @@ function Form(props) {
           <li>
             <label>
               <input
-                name="timeSpent"
-                type="checkbox"
-                value="chatting"
+                name='timeSpent'
+                type='checkbox'
+                value='chatting'
                 onChange={handleCheckboxGroupChange}
-                checked={answers.timeSpent.includes("chatting")}
+                checked={answers.timeSpent.includes('chatting')}
               />
               Chatting
             </label>
@@ -326,11 +322,11 @@ function Form(props) {
           <li>
             <label>
               <input
-                name="timeSpent"
-                type="checkbox"
-                value="noTime"
+                name='timeSpent'
+                type='checkbox'
+                value='noTime'
                 onChange={handleCheckboxGroupChange}
-                checked={answers.timeSpent.includes("noTime")}
+                checked={answers.timeSpent.includes('noTime')}
               />
               I don't like to spend time with it
             </label>
@@ -340,9 +336,9 @@ function Form(props) {
       <label>
         What else have you got to say about your rubber duck?
         <textarea
-          name="review"
-          cols="30"
-          rows="10"
+          name='review'
+          cols='30'
+          rows='10'
           onChange={handleChange}
           value={answers.review}
         ></textarea>
@@ -350,8 +346,8 @@ function Form(props) {
       <label>
         Put your name here (if you feel like it):
         <input
-          type="text"
-          name="username"
+          type='text'
+          name='username'
           onChange={handleChange}
           value={answers.username}
         />
@@ -359,13 +355,13 @@ function Form(props) {
       <label>
         Leave us your email pretty please??
         <input
-          type="email"
-          name="email"
+          type='email'
+          name='email'
           onChange={handleChange}
           value={answers.email}
         />
       </label>
-      <input className="form__submit" type="submit" value="Submit Survey!" />
+      <input className='form__submit' type='submit' value='Submit Survey!' />
     </form>
   );
 }
