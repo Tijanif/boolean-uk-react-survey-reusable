@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Checkbox from './Checkbox';
+
 import CheckBoxGroup from './CheckBoxGroup';
 
 const initialFormState = {
@@ -32,8 +32,8 @@ function Form(props) {
     email: '',
     logo: '',
     colour: '',
-    consistency: '4',
-    timeSpent: ['bathing'],
+    consistency: '',
+    timeSpent: [],
     review: '',
     bestFeatures: [],
     worstFeatures: [],
@@ -119,6 +119,29 @@ function Form(props) {
       name: 'worstFeatures',
       value: 'size',
       text: 'Its big!',
+    },
+  ];
+
+  const timeSpentCheckbox = [
+    {
+      name: 'timeSpent',
+      text: 'Swimming',
+      value: 'swimming',
+    },
+    {
+      name: 'timeSpent',
+      text: 'Chatting',
+      value: 'Chatting',
+    },
+    {
+      name: 'timeSpent',
+      text: 'Bathing',
+      value: 'Bathing',
+    },
+    {
+      name: 'timeSpent',
+      text: `I don't like to spend time with it`,
+      value: 'noTime',
     },
   ];
 
@@ -282,56 +305,11 @@ function Form(props) {
       </div>
       <div className='form__group'>
         <h3>How do you like to spend time with your rubber duck</h3>
-        <ul>
-          <li>
-            <label>
-              <input
-                name='timeSpent'
-                type='checkbox'
-                value='swimming'
-                onChange={handleCheckboxGroupChange}
-                checked={answers.timeSpent.includes('swimming')}
-              />
-              Swimming
-            </label>
-          </li>
-          <li>
-            <label>
-              <input
-                name='timeSpent'
-                type='checkbox'
-                value='bathing'
-                onChange={handleCheckboxGroupChange}
-                checked={answers.timeSpent.includes('bathing')}
-              />
-              Bathing
-            </label>
-          </li>
-          <li>
-            <label>
-              <input
-                name='timeSpent'
-                type='checkbox'
-                value='chatting'
-                onChange={handleCheckboxGroupChange}
-                checked={answers.timeSpent.includes('chatting')}
-              />
-              Chatting
-            </label>
-          </li>
-          <li>
-            <label>
-              <input
-                name='timeSpent'
-                type='checkbox'
-                value='noTime'
-                onChange={handleCheckboxGroupChange}
-                checked={answers.timeSpent.includes('noTime')}
-              />
-              I don't like to spend time with it
-            </label>
-          </li>
-        </ul>
+        <CheckBoxGroup
+          answers={answers}
+          CheckboxList={timeSpentCheckbox}
+          handleCheckboxGroupChange={handleCheckboxGroupChange}
+        />
       </div>
       <label>
         What else have you got to say about your rubber duck?
